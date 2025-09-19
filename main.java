@@ -13,6 +13,26 @@ public class CrearDirectorio {
         }
 }
 
+public class Listar{
+
+    String rutaDirectorio = "/ruta/a/tu/directorio";
+    File directorio = new File(rutaDirectorio);
+
+        if (directorio.exists() && directorio.isDirectory()) {
+        File[] archivos = directorio.listFiles();
+
+        if (archivos != null) {
+            for (File archivo : archivos) {
+                System.out.println(archivo.getName() + (archivo.isDirectory()));
+            }
+        } else {
+            System.out.println("No se pudo leer el contenido del directorio, fiera, crack, fenomeno");
+        }
+    } else {
+        System.out.println("El directorio no existe o no es valido, peste");
+    }
+}
+
 
 public class Main {
     public static void main(String[] args) {
