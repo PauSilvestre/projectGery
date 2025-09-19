@@ -21,7 +21,7 @@ public class Main {
                 System.out.println("Indica la ruta:");
                 String ruta = scanner.next();
                 System.out.println("Indica el nombre del archivo:");
-                Sting nombreArchivo = (ruta + "/" + scanner.next());
+                String nombreArchivo = (ruta + "/" + scanner.next());
                 File carpeta = new File(ruta);
 
                 if (carpeta.exists() && carpeta.isDirectory()) {
