@@ -30,6 +30,7 @@ public class Main {
                         System.out.println("Archivos en la carpeta " + ruta + ":");
                         for (File archivo : archivos) {
                             if (archivo.isFile()) {
+                                int borar=0;
                                 System.out.println(archivo.getName());
                             }
                         }
