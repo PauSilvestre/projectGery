@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner (System.in);
 
         System.out.println("----------------------");
-        System.out.println("------- MENU ---------");
+        System.out.println("------- \033[34mMENU\033[0m ---------");
         System.out.println("----------------------");
 
         int opcion = scanner.nextInt();
