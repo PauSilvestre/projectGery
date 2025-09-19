@@ -15,7 +15,7 @@ public class CrearDirectorio {
 
 public class Listar{
 
-    String rutaDirectorio = "/ruta/a/tu/directorio";
+    String rutaDirectorio = "";
     File directorio = new File(rutaDirectorio);
 
         if (directorio.exists() && directorio.isDirectory()) {
