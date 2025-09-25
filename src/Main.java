@@ -9,7 +9,7 @@ public class Main {
         System.out.println("|------- \033[34mMENU\033[0m ---------|");
         System.out.println("|----------------------|");
         System.out.println(" ");
-        System.out.println("[1] - Crear un archivo o directorio");
+        System.out.println("\033[35m[1] - Crear un archivo o directorio\"\\033[0m");
         System.out.println("[2] - Leer el contenido de un archivo de texto");
         System.out.println("[3] - Escribir contenido en un archivo de texto existente");
         System.out.println("[4] - Eliminar un archivo o directorio");
