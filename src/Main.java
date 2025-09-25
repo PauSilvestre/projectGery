@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("----------------------");
-        System.out.println("------- \033[34mMENU\033[0m -----------");
-        System.out.println("----------------------");
+        System.out.println("|----------------------|");
+        System.out.println("|------- \033[34mMENU\033[0m ---------|");
+        System.out.println("|----------------------|");
         System.out.println(" ");
         System.out.println("[1] - Crear un archivo o directorio");
         System.out.println("[2] - Leer el contenido de un archivo de texto");
@@ -22,15 +22,13 @@ public class Main {
         scanner.nextLine(); // limpiar buffer
 
         switch (opcion) {
-            case 1:
-                // pollita
-                break;
+            case 1 -> {
 
-            case 2:
-                // pollita
-                break;
+            }
+            case 2 -> {
 
-            case 3:
+            }
+            case 3 -> {
                 System.out.print("Indica la ruta de la carpeta: ");
                 String ruta = scanner.nextLine();
                 File carpeta = new File(ruta);
@@ -50,9 +48,8 @@ public class Main {
                 } else {
                     System.out.println("La ruta no existe o no es una carpeta.");
                 }
-                break;
-
-            case 4:
+            }
+            case 4 -> {
                 System.out.print("Indica la ruta del archivo a borrar: ");
                 String rutaArchivo = scanner.nextLine();
                 File archivo = new File(rutaArchivo);
@@ -66,10 +63,8 @@ public class Main {
                 } else {
                     System.out.println("El archivo no existe.");
                 }
-                break;
-
-            default:
-                System.out.println("Opción no válida.");
+            }
+            default -> System.out.println("Opción no válida.");
         }
 
     }
