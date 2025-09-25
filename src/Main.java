@@ -18,55 +18,44 @@ public class Main {
 
         scanner.nextLine(); // limpiar buffer
 
-        switch (opcion) {
-            case 1:
-                // pollita
-                break;
+        if (opcion == 1) {// pollita
+        } else if (opcion == 2) {// pollita
+        } else if (opcion == 3) {
+            System.out.print("Indica la ruta de la carpeta: ");
+            String ruta = scanner.nextLine();
+            File carpeta = new File(ruta);
 
-            case 2:
-                // pollita
-                break;
-
-            case 3:
-                System.out.print("Indica la ruta de la carpeta: ");
-                String ruta = scanner.nextLine();
-                File carpeta = new File(ruta);
-
-                if (carpeta.exists() && carpeta.isDirectory()) {
-                    File[] archivos = carpeta.listFiles();
-                    if (archivos != null && archivos.length > 0) {
-                        System.out.println("Archivos en la carpeta " + ruta + ":");
-                        for (File archivo : archivos) {
-                            if (archivo.isFile()) {
-                                System.out.println(archivo.getName());
-                            }
+            if (carpeta.exists() && carpeta.isDirectory()) {
+                File[] archivos = carpeta.listFiles();
+                if (archivos != null && archivos.length > 0) {
+                    System.out.println("Archivos en la carpeta " + ruta + ":");
+                    for (File archivo : archivos) {
+                        if (archivo.isFile()) {
+                            System.out.println(archivo.getName());
                         }
-                    } else {
-                        System.out.println("La carpeta está vacía o no se pudieron listar los archivos.");
                     }
                 } else {
-                    System.out.println("La ruta no existe o no es una carpeta.");
+                    System.out.println("La carpeta está vacía o no se pudieron listar los archivos.");
                 }
-                break;
+            } else {
+                System.out.println("La ruta no existe o no es una carpeta.");
+            }
+        } else if (opcion == 4) {
+            System.out.print("Indica la ruta del archivo a borrar: ");
+            String rutaArchivo = scanner.nextLine();
+            File archivo = new File(rutaArchivo);
 
-            case 4:
-                System.out.print("Indica la ruta del archivo a borrar: ");
-                String rutaArchivo = scanner.nextLine();
-                File archivo = new File(rutaArchivo);
-
-                if (archivo.exists() && archivo.isFile()) {
-                    if (archivo.delete()) {
-                        System.out.println("Archivo borrado correctamente: " + archivo.getName());
-                    } else {
-                        System.out.println("No se pudo borrar el archivo.");
-                    }
+            if (archivo.exists() && archivo.isFile()) {
+                if (archivo.delete()) {
+                    System.out.println("Archivo borrado correctamente: " + archivo.getName());
                 } else {
-                    System.out.println("El archivo no existe.");
+                    System.out.println("No se pudo borrar el archivo.");
                 }
-                break;
-
-            default:
-                System.out.println("Opción no válida.");
+            } else {
+                System.out.println("El archivo no existe.");
+            }
+        } else {
+            System.out.println("Opción no válida.");
         }
 
     }
