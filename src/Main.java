@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("----------------------");
-        System.out.println("------- \033[34mMENU\033[0m -----------");
-        System.out.println("----------------------");
+        System.out.println("|----------------------|");
+        System.out.println("|------- \033[34mMENU\033[0m ---------|");
+        System.out.println("|----------------------|");
         System.out.println("1. Opción 1");
         System.out.println("2. Opción 2");
         System.out.println("3. Listar archivos de una carpeta");
