@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("----------------------");
-        System.out.println("------- \033[34mMENU\033[0m ---------");
+        System.out.println("------- \033[34mMENU\033[0m -----------");
         System.out.println("----------------------");
         System.out.println("1. Opción 1");
         System.out.println("2. Opción 2");
