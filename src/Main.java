@@ -1,5 +1,10 @@
 import java.io.*;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,10 +28,36 @@ public class Main {
 
         switch (opcion) {
             case 1 -> {
+                System.out.print("Introduce la ruta del archivo a crear: ");
+                String ruta = scanner.nextLine();
+                Path path = Paths.get(ruta);
 
+                try {
+                    if (Files.exists(path)) {
+                        System.out.println("El archivo ya existe.");
+                    } else {
+                        Files.createFile(path);
+                        System.out.println("Archivo creado en: " + path);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error al crear el archivo: " + e.getMessage());
+                }
             }
             case 2 -> {
+                System.out.print("Introduce la ruta del directorio a crear: ");
+                String ruta = scanner.nextLine();
+                Path path = Paths.get(ruta);
 
+                try {
+                    if (Files.exists(path)) {
+                        System.out.println("El directorio ya existe.");
+                    } else {
+                        Files.createDirectories(path);
+                        System.out.println("Directorio creado en: " + path);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error al crear directorio: " + e.getMessage());
+                }
             }
             case 3 -> {
                 System.out.print("Indica la ruta de la carpeta: ");
@@ -62,6 +93,37 @@ public class Main {
                     }
                 } else {
                     System.out.println("El archivo no existe.");
+                }
+            }
+            case 5 -> {
+                System.out.print("Introduce la ruta a comprobar: ");
+                String ruta = scanner.nextLine();
+                Path path = Paths.get(ruta);
+
+                if (Files.exists(path)) {
+                    if (Files.isDirectory(path)) {
+                        System.out.println("Existe y es un directorio.");
+                    } else {
+                        System.out.println("Existe y es un archivo.");
+                    }
+                } else {
+                    System.out.println("No existe.");
+                }
+            }
+            case 6 -> {
+                System.out.print("Introduce la ruta del directorio: ");
+                String ruta = scanner.nextLine();
+                Path path = Paths.get(ruta);
+
+                if (Files.isDirectory(path)) {
+                    try (Stream<Path> elementos = Files.list(path)) {
+                        System.out.println("Contenido del directorio:");
+                        elementos.forEach(System.out::println);
+                    } catch (IOException e) {
+                        System.out.println("Error al listar directorio: " + e.getMessage());
+                    }
+                } else {
+                    System.out.println("La ruta no es un directorio o no existe.");
                 }
             }
             default -> System.out.println("Opción no válida.");
